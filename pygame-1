@@ -1,0 +1,465 @@
+Pygame არის ღია წყაროს პითონის ბიბლიოთეკა, რომელიც გამოიყენება თამაშების შესაქმნელად. ის საკმაოდ პოპულარულია მარტივი და რთული არკადული თამაშების შესაქმნელად. Pygame-ი უზრუნველყოფს ბიბლიოთეკების ნაკრებს, რომლებიც გამოიყენება კომპიუტერის სისტემებთან ურთიერთქმედებისთვის, როგორებიცაა ხმა, გრაფიკა, ანიმაცია და ინტერაქცია.
+ძირითადი ფუნქციები და მახასიათებლები:
+
+გრაფიკა: Pygame უზრუნველყოფს ფანჯრის რენდერინგს, სურათებისა და სპრაიტების მართვას, გრაფიკულ პრიმიტივებს და მრავალ სხვა გრაფიკულ ინსტრუმენტს.
+ხმა: შესაძლებელია ხმის ფაილების დაკვრა, მუსიკის დაყენება, სხვადასხვა ეფექტების გამოყენება და ა.შ.
+ინტერაქცია: Pygame აქვს ფუნქციონალი კლავიატურიდან და მაუსიდან შენატანების მისაღებად.
+ანიმაცია: სპრაიტების გამოყენებით შესაძლებელია ობიექტების მოძრაობა და ანიმირება.
+ფიზიკა: Pygame-ს აქვს შეზღუდული შესაძლებლობები კოლიზიის ამოცნობისა და მარტივი ფიზიკური სიმულაციებისთვის.
+ფორმატები: უზრუნველყოფს მხარდაჭერას გამოსახულებებისა და ხმოვანი ფაილების პოპულარული ფორმატებისთვის.
+კროსპლატფორმული: Pygame-ი მუშაობს Windows, macOS და Linux-ზე.
+დოკუმენტაცია და სამუშაო ნიმუშები: მას აქვს კარგი დოკუმენტაცია და ბევრი საგანმანათლებლო რესურსი თამაშების შესაქმნელად.
+
+Pygame ფართოდ გამოიყენება არა მხოლოდ თამაშების შესაქმნელად, არამედ მარტივი გრაფიკული აპლიკაციების, სიმულაციების და ვიზუალიზაციების შესაქმნელადაც. მისი საშუალებით შესაძლებელია სხვადასხვა დონის თამაშის შექმნა - დაწყებული მარტივი არკადული თამაშებით და დამთავრებული რთული 2D თამაშებით.
+
+მარტივი მაგალითები
+##########################################################
+
+# იმპორტი PyGame-ის ბიბლიოთეკისა
+import pygame
+
+# PyGame-ის ინიციალიზაცია
+pygame.init()
+
+# ფანჯრის ზომა
+screen_width = 800
+screen_height = 600
+
+# ფანჯრის შექმნა
+screen = pygame.display.set_mode((screen_width, screen_height))
+
+# ფანჯრის სათაურის დაყენება
+pygame.display.set_caption("My First PyGame Window")
+
+# ფანჯრის ღია დატოვება
+running = True
+while running:
+    # მოვლენების დამუშავება (მაგ., დახურვის ღილაკზე დაჭერა)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+# PyGame-ის გამოსვლა
+pygame.quit()
+
+########################################
+
+import pygame
+
+# ინიციალიზაცია და ფანჯრის შექმნა
+pygame.init()
+screen = pygame.display.set_mode((800, 600))
+pygame.display.set_caption("Drawing Shapes")
+
+# ფერების განსაზღვრა
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+BLUE = (0, 0, 255)
+
+# ფანჯრის გაწმენდა
+screen.fill(WHITE)
+
+# წრეწირის რენდერინგი
+pygame.draw.circle(screen, RED, (200, 200), 50)
+
+# მართკუთხედის რენდერინგი
+pygame.draw.rect(screen, GREEN, (400, 300, 150, 100))
+
+# ხაზის რენდერინგი
+pygame.draw.line(screen, BLUE, (100, 500), (700, 500), 5)
+
+# ცვლილებების გამოტანა
+pygame.display.flip()
+
+# ციკლი ფანჯრის ღია დატოვებისთვის
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+pygame.quit()
+
+############################################################
+
+import pygame
+
+# ინიციალიზაცია და ფანჯრის შექმნა
+pygame.init()
+screen = pygame.display.set_mode((800, 600))
+pygame.display.set_caption("Rendering an Image")
+
+# სურათის ჩატვირთვა
+image = pygame.image.load("image.png")
+
+# ფანჯრის გაწმენდა
+screen.fill((255, 255, 255))
+
+# სურათის რენდერინგი
+screen.blit(image, (200, 200))
+
+# ცვლილებების გამოტანა
+pygame.display.flip()
+
+# ციკლი ფანჯრის ღია დატოვებისთვის
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+pygame.quit()
+
+#####################################################
+
+
+import pygame
+
+# ინიციალიზაცია და ფანჯრის შექმნა
+pygame.init()
+screen = pygame.display.set_mode((800, 600))
+pygame.display.set_caption("Moving Object")
+
+# ობიექტის პოზიცია და ზომა
+obj_x = 400
+obj_y = 300
+obj_width = 50
+obj_height = 50
+
+# ფანჯრის გაწმენდა
+screen.fill((255, 255, 255))
+
+# ობიექტის რენდერინგი
+pygame.draw.rect(screen, (0, 0, 0), (obj_x, obj_y, obj_width, obj_height))
+pygame.display.flip()
+
+# ობიექტის გადაადგილება
+moving_right = True
+
+# ციკლი ობიექტის მოძრაობისთვის
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    # ობიექტის გადაადგილება
+    if moving_right:
+        obj_x += 5
+        if obj_x > screen.get_width() - obj_width:
+            moving_right = False
+    else:
+        obj_x -= 5
+        if obj_x < 0:
+            moving_right = True
+
+    # ფანჯრის გაწმენდა და ობიექტის რენდერინგი
+    screen.fill((255, 255, 255))
+    pygame.draw.rect(screen, (0, 0, 0), (obj_x, obj_y, obj_width, obj_height))
+    pygame.display.flip()
+
+pygame.quit()
+
+
+###################################################
+
+import pygame
+
+# ინიციალიზაცია და ფანჯრის შექმნა
+pygame.init()
+screen = pygame.display.set_mode((800, 600))
+pygame.display.set_caption("Keyboard Input")
+
+# ობიექტის პოზიცია და ზომა
+obj_x = 400
+obj_y = 300
+obj_width = 50
+obj_height = 50
+
+# ფანჯრის გაწმენდა
+screen.fill((255, 255, 255))
+
+# ობიექტის რენდერინგი
+pygame.draw.rect(screen, (0, 0, 0), (obj_x, obj_y, obj_width, obj_height))
+pygame.display.flip()
+
+# ციკლი კლავიატურის შენატანების დამუშავებისთვის
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                obj_x -= 10
+            elif event.key == pygame.K_RIGHT:
+                obj_x += 10
+            elif event.key == pygame.K_UP:
+                obj_y -= 10
+            elif event.key == pygame.K_DOWN:
+                obj_y += 10
+
+    # ფანჯრის გაწმენდა და ობიექტის რენდერინგი
+    screen.fill((255, 255, 255))
+    pygame.draw.rect(screen, (0, 0, 0), (obj_x, obj_y, obj_width, obj_height))
+    pygame.display.flip()
+
+pygame.quit()
+
+
+############################################################
+
+import pygame
+
+# ინიციალიზაცია და ფანჯრის შექმნა
+pygame.init()
+screen = pygame.display.set_mode((800, 600))
+pygame.display.set_caption("Mouse Input")
+
+# წრეწირის პოზიცია და რადიუსი
+circle_x = 400
+circle_y = 300
+circle_radius = 25
+
+# ფანჯრის გაწმენდა
+screen.fill((255, 255, 255))
+
+# წრეწირის რენდერინგი
+pygame.draw.circle(screen, (0, 0, 0), (circle_x, circle_y), circle_radius)
+pygame.display.flip()
+
+# ციკლი მაუსის შენატანების დამუშავებისთვის
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        elif event.type == pygame.MOUSEMOTION:
+            # წრეწირის გადაადგილება მაუსის კურსორის მიხედვით
+            circle_x, circle_y = event.pos
+
+    # ფანჯრის გაწმენდა და წრეწირის რენდერინგი
+    screen.fill((255, 255, 255))
+    pygame.draw.circle(screen, (0, 0, 0), (circle_x, circle_y), circle_radius)
+    pygame.display.flip()
+
+pygame.quit()
+
+
+######################################################
+
+
+import pygame
+
+# ინიციალიზაცია და ფანჯრის შექმნა
+pygame.init()
+screen = pygame.display.set_mode((800, 600))
+pygame.display.set_caption("Playing Sound")
+
+# ხმის ფაილის ჩატვირთვა
+sound = pygame.mixer.Sound("sound.wav")
+
+# ციკლი ხმის დაკვრისთვის
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                # ხმის დაკვრა
+                sound.play()
+
+pygame.quit()
+
+
+#########################
+
+import pygame
+
+# ინიციალიზაცია და ფანჯრის შექმნა
+pygame.init()
+screen = pygame.display.set_mode((800, 600))
+pygame.display.set_caption("Using Sprites")
+
+# სპრაიტების ჯგუფის შექმნა
+all_sprites = pygame.sprite.Group()
+
+# სპრაიტის კლასის განსაზღვრა
+class Player(pygame.sprite.Sprite):
+    def __init__(self):
+        super().__init__()
+        self.image = pygame.Surface((50, 50))
+        self.image.fill((0, 0, 0))
+        self.rect = self.image.get_rect()
+        self.rect.center = (400, 300)
+
+    def update(self):
+        # სპრაიტის მოძრაობის ლოგიკა
+        pass
+
+# სპრაიტის შექმნა და ჯგუფში დამატება
+player = Player()
+all_sprites.add(player)
+
+# ციკლი სპრაიტების რენდერინგისთვის
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    # სპრაიტების განახლება
+    all_sprites.update()
+
+    # ფანჯრის გაწმენდა
+    screen.fill((255, 255, 255))
+
+    # სპრაიტების რენდერინგი
+    all_sprites.draw(screen)
+
+    # ცვლილებების გამოტანა
+    pygame.display.flip()
+
+pygame.quit()
+
+
+#############################################
+
+
+import pygame
+
+# ინიციალიზაცია და ფანჯრის შექმნა
+pygame.init()
+screen = pygame.display.set_mode((800, 600))
+pygame.display.set_caption("Collision Detection")
+
+# ობიექტების პოზიცია და ზომა
+player_x = 400
+player_y = 300
+player_width = 50
+player_height = 50
+
+obstacle_x = 200
+obstacle_y = 200
+obstacle_width = 100
+obstacle_height = 100
+
+# ფანჯრის გაწმენდა
+screen.fill((255, 255, 255))
+
+# ობიექტების რენდერინგი
+pygame.draw.rect(screen, (0, 0, 0), (player_x, player_y, player_width, player_height))
+pygame.draw.rect(screen, (255, 0, 0), (obstacle_x, obstacle_y, obstacle_width, obstacle_height))
+pygame.display.flip()
+
+# ციკლი კოლიზიის ამოცნობისთვის
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    # კოლიზიის ამოცნობა
+    player_rect = pygame.Rect(player_x, player_y, player_width, player_height)
+    obstacle_rect = pygame.Rect(obstacle_x, obstacle_y, obstacle_width, obstacle_height)
+    if player_rect.colliderect(obstacle_rect):
+        print("Collision detected!")
+
+    # ფანჯრის გაწმენდა და ობიექტების რენდერინგი
+    screen.fill((255, 255, 255))
+    pygame.draw.rect(screen, (0, 0, 0), (player_x, player_y, player_width, player_height))
+    pygame.draw.rect(screen, (255, 0, 0), (obstacle_x, obstacle_y, obstacle_width, obstacle_height))
+    pygame.display.flip()
+
+pygame.quit()
+
+
+##############################################
+
+import pygame
+
+# ინიციალიზაცია და ფანჯრის შექმნა
+pygame.init()
+screen = pygame.display.set_mode((800, 600))
+pygame.display.set_caption("Sprite Animation")
+
+# სურათების სია ანიმაციისთვის
+animation_frames = []
+for i in range(1, 5):
+    image = pygame.image.load(f"frame{i}.png")
+    animation_frames.append(image)
+
+# სპრაიტის კლასის განსაზღვრა
+
+
+import pygame
+
+# ინიციალიზაცია და ფანჯრის შექმნა
+pygame.init()
+screen = pygame.display.set_mode((800, 600))
+pygame.display.set_caption("Sprite Animation")
+
+# სურათების სია ანიმაციისთვის
+animation_frames = []
+for i in range(1, 5):
+    image = pygame.image.load(f"frame{i}.png")
+    animation_frames.append(image)
+
+# სპრაიტის კლასის განსაზღვრა
+class Player(pygame.sprite.Sprite):
+    def __init__(self):
+        super().__init__()
+        self.frames = animation_frames
+        self.current_frame = 0
+        self.image = self.frames[self.current_frame]
+        self.rect = self.image.get_rect()
+        self.rect.center = (400, 300)
+
+    def update(self):
+        # ანიმაციის ლოგიკა
+        self.current_frame = (self.current_frame + 1) % len(self.frames)
+        self.image = self.frames[self.current_frame]
+
+# სპრაიტების ჯგუფის შექმნა
+all_sprites = pygame.sprite.Group()
+
+# სპრაიტის შექმნა და ჯგუფში დამატება
+player = Player()
+all_sprites.add(player)
+
+# ციკლი ანიმაციის რენდერინგისთვის
+clock = pygame.time.Clock()
+running = True
+while running:
+    clock.tick(10)  # ანიმაციის სიჩქარის კონტროლი
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    # სპრაიტების განახლება
+    all_sprites.update()
+
+    # ფანჯრის გაწმენდა
+    screen.fill((255, 255, 255))
+
+    # სპრაიტების რენდერინგი
+    all_sprites.draw(screen)
+
+    # ცვლილებების გამოტანა
+    pygame.display.flip()
+
+pygame.quit()
+
+
+#####################################
+
+
+
+
+
+
+
